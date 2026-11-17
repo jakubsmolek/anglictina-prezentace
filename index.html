@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nový web Angličtiny s Katkou – čtyři varianty a co dál</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand: #c42040; --brand-dark: #9e1832; --brand-soft: #ffe3e8; --tint: #fff5f7;
+    --line: #f2d3d8; --fg: #1d1d22; --muted: #5f5f6b; --ink: #2a1a20;
+    --ok: #2e8b4e; --warn: #d2641a; --note: #fff6c2;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: var(--fg); background: linear-gradient(180deg, #ffebeb, #fff 420px) #fff; font: 16px/1.55 "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding-bottom: 84px; }
+  .slide { max-width: 980px; margin: 0 auto; padding: 28px 16px; scroll-margin-top: 8px; }
+  .inner { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 24px 18px; box-shadow: 0 8px 28px rgba(196,32,64,.10); }
+  .num { font-size: 13px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--brand); margin: 0 0 6px; }
+  h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; text-wrap: balance; }
+  h1 { font-size: clamp(30px, 7.5vw, 48px); font-weight: 800; letter-spacing: -.5px; }
+  h2 { font-size: clamp(23px, 5.4vw, 32px); font-weight: 800; }
+  h3 { font-size: 18px; font-weight: 700; }
+  p { margin: 0 0 12px; }
+  .lead { font-size: 18px; color: var(--muted); }
+  .muted { color: var(--muted); } .small { font-size: 14px; }
+  ul { margin: 0 0 12px; padding-left: 20px; } li { margin-bottom: 6px; }
+  .grid { display: grid; gap: 14px; margin-top: 16px; }
+  .box { border: 1px solid var(--line); border-radius: 14px; padding: 16px; background: #fff; }
+  .box.pro { border-left: 5px solid var(--ok); } .box.con { border-left: 5px solid var(--warn); }
+  .box.hi { border: 2px solid var(--brand); background: var(--tint); }
+  .box h3 { margin-bottom: 8px; }
+  .box ul { margin-bottom: 0; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: var(--brand-soft); color: var(--brand-dark); margin: 0 6px 8px 0; }
+  .tag.no { background: #f1f1f3; color: #55555f; } .tag.yes { background: #e3f6e8; color: #1f6b39; } .tag.dark { background: var(--ink); color: #fff; }
+  .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0 4px; }
+  .fact { background: var(--tint); border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
+  .fact b { display: block; font-size: 17px; color: var(--brand-dark); } .fact span { font-size: 13px; color: var(--muted); }
+  .tbl { overflow-x: auto; margin-top: 16px; border: 1px solid var(--line); border-radius: 14px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 620px; }
+  th, td { padding: 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  thead th { background: var(--brand); color: #fff; }
+  tbody tr:last-child td { border-bottom: 0; }
+  td:first-child { font-weight: 700; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 10px 20px; border-radius: 999px; font-weight: 700; text-decoration: none; background: var(--brand); color: #fff; border: 2px solid var(--brand); }
+  .btn.ghost { background: #fff; color: var(--brand); }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .warn { background: var(--note); border-left: 4px solid #e6c84a; border-radius: 8px; padding: 10px 12px; font-size: 14px; color: #4a3f10; margin-top: 14px; }
+  .steps { counter-reset: s; display: grid; gap: 10px; margin-top: 16px; }
+  .step { position: relative; padding: 14px 14px 14px 58px; border: 1px solid var(--line); border-radius: 14px; }
+  .step::before { counter-increment: s; content: counter(s); position: absolute; left: 14px; top: 14px; width: 30px; height: 30px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 800; display: grid; place-items: center; }
+  .step b { display: block; } .step span { color: var(--muted); font-size: 14px; }
+  .q { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; cursor: pointer; }
+  .q input { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--brand); flex: none; }
+  .q b { display: block; } .q span { color: var(--muted); font-size: 14px; }
+  .cover { text-align: center; padding: 48px 18px; }
+  .cover .logo { font-weight: 800; font-size: 18px; margin-bottom: 18px; } .cover .logo span { color: var(--brand); }
+  nav.bar { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,.97); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; align-items: center; justify-content: space-between; gap: 12px; z-index: 10; }
+  nav.bar button { min-height: 46px; min-width: 96px; border-radius: 999px; border: 2px solid var(--brand); background: #fff; color: var(--brand); font: inherit; font-weight: 700; cursor: pointer; }
+  nav.bar button.next { background: var(--brand); color: #fff; }
+  nav.bar button:disabled { opacity: .35; cursor: default; }
+  #pos { font-weight: 700; color: var(--muted); font-size: 14px; text-align: center; }
+  @media (min-width: 780px) {
+    .slide { min-height: 100vh; display: flex; align-items: center; padding: 40px 16px; }
+    .inner { padding: 44px; width: 100%; }
+    .g2 { grid-template-columns: repeat(2, 1fr); } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); }
+    .facts { grid-template-columns: repeat(4, 1fr); }
+    .steps.cols { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media print { nav.bar { display: none; } .slide { min-height: 0; page-break-inside: avoid; } body { background: #fff; } }
+</style>
+</head>
+<body>
+
+<section class="slide"><div class="inner cover">
+  <p class="logo">Angličtina <span>s Katkou</span></p>
+  <h1>Nový web: čtyři varianty a co dál</h1>
+  <p class="lead">Podklad pro společné rozhodnutí · 16.11.2026</p>
+  <p class="muted small">Posouvejte se dolů, nebo použijte tlačítka dole a šipky na klávesnici.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Proč to řešíme</p>
+  <h2>Dnešní web neprodává a příjem má strop</h2>
+  <div class="grid g2">
+    <div class="box con"><h3>Web dnes</h3><ul>
+      <li>Úvodní stránka je blog, chybí jasná výzva, co má návštěvník udělat.</li>
+      <li>Úvodní lekce zdarma je schovaná a podmíněná nákupem.</li>
+      <li>E-booky se prodávají jednotlivě, bez návaznosti na kurz.</li>
+    </ul></div>
+    <div class="box con"><h3>Příjem dnes</h3><ul>
+      <li>Skoro všechno jsou Katčiny odučené hodiny.</li>
+      <li>Každých 10 lekcí týdně je zhruba 24 000 Kč měsíčně. Víc hodin týden nemá.</li>
+      <li>Když Katka neučí, web nevydělává.</li>
+    </ul></div>
+  </div>
+  <div class="box hi" style="margin-top:14px"><h3>Cíl</h3><p style="margin:0">Web, který přivádí zájemce a prodává i věci, které nestojí Katčin čas. Učení zůstává, ale nemá být jediným zdrojem příjmu.</p></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Co už je hotové</p>
+  <h2>Na čem můžeme stavět</h2>
+  <div class="grid g3">
+    <div class="box"><h3>Test angličtiny</h3><p class="muted small">14 otázek, úroveň A1–B2, doporučení kurzu. Běží.</p><a class="btn ghost" data-local="test/index.html" href="https://jakubsmolek.github.io/anglictina-test/" target="_blank" rel="noopener">Otevřít test</a></div>
+    <div class="box"><h3>8 sad cvičení</h3><p class="muted small">Spojování, test, psaní, kartičky. Gramatika i slovíčka podle tématu. Výsledek jde sdílet.</p><a class="btn ghost" data-local="quizlet/airport/index.html" href="https://jakubsmolek.github.io/quizlet-airport/" target="_blank" rel="noopener">Ukázka sady</a></div>
+    <div class="box"><h3>Blog uvnitř webu</h3><p class="muted small">9 článků z dnešního webu, každý končí cvičením a výzvou.</p></div>
+  </div>
+  <div class="grid g2">
+    <div class="box"><h3>Čtyři klikací prototypy</h3><p class="muted small" style="margin:0">Fungují v telefonu, dají se proklikat. O nich je zbytek prezentace.</p></div>
+    <div class="box"><h3>Osnovy a plány</h3><p class="muted small" style="margin:0">Učební plán lekci po lekci, plán stránek, otázky k ověření, strategie a roadmapa.</p></div>
+  </div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Přehled</p>
+  <h2>Čtyři prototypy v kostce</h2>
+  <p class="muted">Verze 1–3 mají stejný web a liší se v tom, co stojí vedle lekcí. Verze 4 mění web celý.</p>
+  <div class="grid g2">
+    <div class="box"><span class="tag no">nedoporučuji</span><h3>1 · Celoroční Klub</h3><p class="muted small">Měsíční členství, pro všechny stejný obsah každý týden.</p><a class="btn ghost" data-local="prototyp/web-1.html" href="https://jakubsmolek.github.io/anglictina-prototyp-1/" target="_blank" rel="noopener">Otevřít prototyp 1</a></div>
+    <div class="box"><span class="tag yes">první krok</span><h3>2 · Sezónní skupinky</h3><p class="muted small">Kurz na 6 týdnů pro 4–6 lidí, čtyři termíny ročně.</p><a class="btn ghost" data-local="prototyp/web-2.html" href="https://jakubsmolek.github.io/anglictina-prototyp-2/" target="_blank" rel="noopener">Otevřít prototyp 2</a></div>
+    <div class="box"><span class="tag">později</span><h3>3 · Klub na míru</h3><p class="muted small">Osobní plán 10 modulů podle testu, k tomu skupinky.</p><a class="btn ghost" data-local="prototyp/web-3.html" href="https://jakubsmolek.github.io/anglictina-prototyp-3/" target="_blank" rel="noopener">Otevřít prototyp 3</a></div>
+    <div class="box hi"><span class="tag dark">doporučený základ</span><h3>4 · Web, který prodává produkty</h3><p class="muted small">Test jako vstup, obchod s balíčky, stránka pro firmy. Konzultace a lekce zůstávají.</p><a class="btn" data-local="prototyp/web-4.html" href="https://jakubsmolek.github.io/anglictina-prototyp-4/" target="_blank" rel="noopener">Otevřít prototyp 4</a></div>
+  </div>
+  <p class="warn">V každém prototypu je nahoře tlačítko „Zobrazit poznámky“. Ukáže, proč tam která část je. Ceny označené žlutě jsou návrh.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Prototyp 1</p>
+  <h2>Celoroční Klub</h2>
+  <p class="lead">Každý týden nová sada cvičení, dvakrát měsíčně skupinka, měsíční výzva, knihovna e-booků.</p>
+  <div class="facts">
+    <div class="fact"><b>390 Kč</b><span>měsíčně, návrh</span></div>
+    <div class="fact"><b>6 hodin</b><span>Katčiny práce měsíčně</span></div>
+    <div class="fact"><b>48 sad</b><span>nového obsahu ročně</span></div>
+    <div class="fact"><b>11 700 Kč</b><span>měsíčně při 30 členech</span></div>
+  </div>
+  <div class="grid g2">
+    <div class="box pro"><h3>Výhody</h3><ul><li>Pravidelný měsíční příjem.</li><li>Jde spustit na MioWebu.</li><li>Živý kontakt ve skupinkách.</li></ul></div>
+    <div class="box con"><h3>Nevýhody</h3><ul><li>Tvorba obsahu nikdy nekončí, ani v létě.</li><li>Všichni dostávají totéž bez ohledu na úroveň.</li><li>Není důvod přihlásit se právě teď.</li><li>Členové po pár měsících odcházejí.</li></ul></div>
+  </div>
+  <p class="warn"><b>Verdikt:</b> nedoporučuji. Verze 2 a 3 řeší obě hlavní slabiny.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Prototyp 2</p>
+  <h2>Sezónní skupinky</h2>
+  <p class="lead">Šest týdnů, jednou týdně 60 minut online, 4–6 lidí na stejné úrovni podle testu.</p>
+  <div class="facts">
+    <div class="fact"><b>1 990 Kč</b><span>za celý kurz, návrh</span></div>
+    <div class="fact"><b>10 hodin</b><span>na jednu skupinku</span></div>
+    <div class="fact"><b>asi 2 000 Kč</b><span>za odučenou hodinu při 6 lidech</span></div>
+    <div class="fact"><b>až 95 520 Kč</b><span>ročně při 8 plných skupinkách</span></div>
+  </div>
+  <div class="box" style="margin-top:14px"><h3>Kurzy během roku</h3><ul style="margin:0"><li><b>Nový start</b> (leden–únor): rozmluvit se.</li><li><b>Před dovolenou</b> (duben–květen a listopad–prosinec): před létem i před zimou.</li><li><b>Angličtina do práce</b> (září–říjen).</li></ul></div>
+  <div class="grid g2">
+    <div class="box pro"><h3>Výhody</h3><ul><li>Hodina vynese asi třikrát víc než lekce 1:1.</li><li>Má začátek a konec.</li><li>Pevná uzávěrka přihlášek dává důvod se rozhodnout.</li><li>Žádná nová technika, stačí e-shop.</li></ul></div>
+    <div class="box con"><h3>Nevýhody</h3><ul><li>Pořád je to Katčin čas, jen lépe placený.</li><li>Příjem přichází ve vlnách, ne každý měsíc.</li><li>Skupinka se musí naplnit lidmi stejné úrovně.</li></ul></div>
+  </div>
+  <p class="warn"><b>Verdikt:</b> dobrý první krok. První termín Před dovolenou na jaře 2027, nic nestojí a ověří zájem.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Prototyp 3</p>
+  <h2>Klub na míru</h2>
+  <p class="lead">Člen udělá test a dostane vlastní plán 10 modulů. Plní úkoly a podle výsledků dostává další doporučení.</p>
+  <div class="facts">
+    <div class="fact"><b>290 Kč</b><span>měsíčně, návrh</span></div>
+    <div class="fact"><b>10 hodin</b><span>jednorázově na schválení modulů</span></div>
+    <div class="fact"><b>4–8 hodin</b><span>měsíčně na zpětnou vazbu</span></div>
+    <div class="fact"><b>29 000 Kč</b><span>měsíčně při 100 členech</span></div>
+  </div>
+  <div class="box" style="margin-top:14px"><p style="margin:0"><b>Důležité:</b> obsah nepíše umělá inteligence každému zvlášť. Moduly schvaluje Katka, systém je jen vybírá a řadí. Dokončené moduly členovi zůstanou i po zrušení.</p></div>
+  <div class="grid g2">
+    <div class="box pro"><h3>Výhody</h3><ul><li>Pravidelný příjem, který neroste s Katčinými hodinami.</li><li>Obsah vzniká jednou.</li><li>Osobní plán je důvod platit, i když jsou aplikace zdarma.</li></ul></div>
+    <div class="box con"><h3>Nevýhody</h3><ul><li>MioWeb to neunese, je potřeba vlastní aplikace s přihlášením.</li><li>Na 100 členů jsou potřeba tisíce kontaktů.</li><li>Samostudium lidé rychle opouštějí.</li><li>Přibývá odpovědnost za osobní údaje.</li></ul></div>
+  </div>
+  <p class="warn"><b>Verdikt:</b> správný směr, ale ne první krok. Stavět, až bude 30 lidí na čekací listině a přes 1 000 e-mailů.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Prototyp 4</p>
+  <h2>Web, který prodává produkty</h2>
+  <p class="lead">Mění se samotný web. Hlavní tlačítko vede na test, ne na lekci. Skupinky i Klub na míru v něm zůstávají jako produkty.</p>
+  <div class="grid g3">
+    <div class="box"><h3>Test jako vstup</h3><p class="muted small" style="margin:0">Výsledek hned, plán do e-mailu. Doporučí konkrétní produkt.</p></div>
+    <div class="box"><h3>Obchod</h3><p class="muted small" style="margin:0">Balíčky Na cesty, Do práce a Gramatika (e-book, cvičení, tahák). Kurzy na doma v předprodeji.</p></div>
+    <div class="box"><h3>Pro firmy</h3><p class="muted small" style="margin:0">Test týmu zdarma, procvičování a lekce na pololetí, přehled pro personalistu.</p></div>
+  </div>
+  <div class="box hi" style="margin-top:14px"><h3>Konzultace a lekce zůstávají</h3><p style="margin:0">Online konzultace zdarma (20 minut) je na úvodní stránce i v závěru každé stránky. Kalendář nabídne jen několik termínů týdně, aby Katka věděla, kolik času jí to vezme. Vede k lekcím 1:1, skupinkám, Pohovoru na míru a k firmám.</p></div>
+  <div class="grid g2">
+    <div class="box pro"><h3>Výhody</h3><ul><li>Web může vydělávat bez ohledu na to, kolik Katka učí.</li><li>První balíčky jdou složit z hotových věcí.</li><li>Test sbírá kontakty pro další prodej.</li><li>Firmy nepotřebují velké publikum.</li></ul></div>
+    <div class="box con"><h3>Nevýhody</h3><ul><li>Balíčky za stovky korun vydělají zajímavě až s tisíci návštěvníků.</li><li>Firmám musí někdo aktivně prodávat.</li><li>„Tým lektorů“ je zatím jen plán.</li><li>Web je složitější než verze 2.</li></ul></div>
+  </div>
+  <p class="warn"><b>Verdikt:</b> doporučený základ nového webu. Spouštět po částech.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Srovnání</p>
+  <h2>Všechny čtyři vedle sebe</h2>
+  <div class="tbl"><table>
+    <thead><tr><th></th><th>1 · Klub</th><th>2 · Skupinky</th><th>3 · Klub na míru</th><th>4 · Web s obchodem</th></tr></thead>
+    <tbody>
+      <tr><td>Co prodává</td><td>členství pro všechny stejné</td><td>6týdenní kurz ve skupince</td><td>osobní plán, předplatné</td><td>balíčky, kurzy na doma, firmy, lekce</td></tr>
+      <tr><td>Příjem bez Katčiných hodin</td><td>částečně</td><td>ne</td><td>ano</td><td>ano</td></tr>
+      <tr><td>Katčin čas</td><td>6 hodin měsíčně, pořád</td><td>10 hodin na skupinku</td><td>10 hodin jednou, pak 4–8 měsíčně</td><td>schválení balíčků, konzultace podle chuti</td></tr>
+      <tr><td>Technika</td><td>členská sekce MioWebu</td><td>jen e-shop</td><td>vlastní aplikace</td><td>e-shop MioWebu, později víc</td></tr>
+      <tr><td>Kdy první peníze</td><td>po spuštění Klubu</td><td>jaro 2027</td><td>nejdřív konec 2027</td><td>hned po spuštění obchodu</td></tr>
+      <tr><td>Hlavní riziko</td><td>Katka se upracuje</td><td>skupinka se nenaplní</td><td>nebude dost zájemců</td><td>malá návštěvnost</td></tr>
+      <tr><td>Doporučení</td><td>ne</td><td>ano, jako produkt</td><td>později</td><td>ano, jako základ</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted small" style="margin-top:10px">Na telefonu jde tabulka posouvat do strany.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Doporučení</p>
+  <h2>Nevybírat jednu, ale poskládat je</h2>
+  <div class="steps">
+    <div class="step"><b>Základ: prototyp 4</b><span>Web s testem, obchodem a konzultací. Na MioWebu.</span></div>
+    <div class="step"><b>K tomu skupinky z prototypu 2</b><span>První termín na jaře 2027, druhý před zimní dovolenou.</span></div>
+    <div class="step"><b>Později Klub na míru z prototypu 3</b><span>Až bude dost kontaktů. Moduly mezitím vznikají z balíčků a skupinek.</span></div>
+    <div class="step"><b>Prototyp 1 vynechat</b><span>Stojí nejvíc práce a přináší nejméně.</span></div>
+  </div>
+  <div class="box" style="margin-top:14px"><h3>Dvě cesty k příjmu bez Katčiných hodin</h3><ul style="margin:0"><li><b>Firmy a lektoři:</b> první peníze za 3–6 měsíců, nepotřebují publikum, ale někdo musí obchodovat a Katka musí chtít vést lidi.</li><li><b>Digitální produkty:</b> první prodeje hned, velké částky až za 12–24 měsíců s tisíci kontaktů.</li></ul></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Co to obnáší</p>
+  <h2>Co je potřeba od Katky</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Jednorázově</h3><ul>
+      <li>Odpovědět na otázky k ověření (asi 45 minut).</li>
+      <li>Dodat 2–3 fotky a souhlas studentek s referencemi.</li>
+      <li>Určit ceny balíčků a potvrdit záruku.</li>
+      <li>Zkontrolovat otázky v testu a slovíčka v sadách.</li>
+      <li>Schválit texty stránek.</li>
+      <li>Později: natočit 10 krátkých lekcí ke kurzu na doma (10–15 hodin).</li>
+    </ul></div>
+    <div class="box"><h3>Průběžně</h3><ul>
+      <li>Konzultace zdarma: tolik termínů týdně, kolik si určí.</li>
+      <li>Instagram: tři krátké příspěvky týdně, natočit najednou.</li>
+      <li>E-mail „Fráze týdne“: doplnit jednu frázi do šablony.</li>
+      <li>Schválit dva články měsíčně.</li>
+      <li>Skupinka: asi 10 hodin na jeden kurz.</li>
+    </ul></div>
+  </div>
+  <div class="box hi" style="margin-top:14px"><p style="margin:0"><b>Pomocník:</b> asistent v Claude, který ví, jak Katka učí. Z pár nadiktovaných poznámek připraví plán na míru, podklady k pohovoru nebo lekci. Katka jen kontroluje a schvaluje.</p></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Co to obnáší</p>
+  <h2>Technika a náklady</h2>
+  <div class="grid g2">
+    <div class="box"><h3>Co udělá Jakub</h3><ul>
+      <li>Poskládá stránky v MioWebu podle prototypu.</li>
+      <li>Vloží test, cvičení a rezervační kalendář.</li>
+      <li>Nastaví balíčky v e-shopu a měření návštěvnosti.</li>
+      <li>Připraví články, e-maily a nové sady cvičení ke schválení.</li>
+      <li>Osloví první firmy.</li>
+    </ul></div>
+    <div class="box"><h3>Co to stojí</h3><ul>
+      <li>MioWeb: stávající platba, nic navíc.</li>
+      <li>Test a cvičení: zdarma.</li>
+      <li>Rezervační kalendář: zdarma v základním tarifu.</li>
+      <li>Vlastní aplikace pro Klub na míru: až později, provoz ve stokorunách měsíčně.</li>
+    </ul></div>
+  </div>
+  <div class="box" style="margin-top:14px"><h3>Co ještě nevíme</h3><ul style="margin:0"><li>Jaký má Katka tarif MioWebu a čím přijímá platby.</li><li>Kolik lidí na web chodí a kolik má e-mailových kontaktů.</li><li>Jestli e-shop umí poslat digitální produkt automaticky po zaplacení.</li></ul></div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Peníze</p>
+  <h2>Kolik může co vynést</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Zdroj</th><th>Příklad</th><th>Výnos</th><th>Katčin čas</th></tr></thead>
+    <tbody>
+      <tr><td>Lekce 1:1</td><td>10 lekcí týdně</td><td>asi 24 000 Kč měsíčně</td><td>10 hodin týdně</td></tr>
+      <tr><td>Balíček</td><td>30 prodaných kusů po 390 Kč</td><td>11 700 Kč</td><td>žádný</td></tr>
+      <tr><td>Skupinka</td><td>6 lidí po 1 990 Kč</td><td>11 940 Kč za kurz</td><td>asi 10 hodin</td></tr>
+      <tr><td>Pohovor na míru</td><td>4 klienti měsíčně po 2 990 Kč</td><td>11 960 Kč měsíčně</td><td>asi 14 hodin</td></tr>
+      <tr><td>Firma</td><td>20 lidí, procvičování a 2 skupinky s lektorem</td><td>asi 7 000 Kč měsíčně</td><td>téměř žádný</td></tr>
+      <tr><td>Lektor</td><td>15 lekcí týdně, podíl 30 %</td><td>asi 11 000 Kč měsíčně</td><td>vedení, ne učení</td></tr>
+      <tr><td>Klub na míru</td><td>100 členů po 290 Kč</td><td>29 000 Kč měsíčně</td><td>asi 8 hodin měsíčně</td></tr>
+    </tbody>
+  </table></div>
+  <p class="warn"><b>Jsou to modelové příklady, ne předpověď.</b> Ceny u nových produktů, u firem a podíl z lektorů jsou návrhy k ověření. Skutečná čísla o návštěvnosti a prodejích zatím nemáme.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Co dál</p>
+  <h2>Roadmapa do konce roku 2027</h2>
+  <div class="steps cols">
+    <div class="step"><b>Rozhodnutí · do 30.11.2026</b><span>Co Katka chce, jaká jsou čísla, která verze.</span></div>
+    <div class="step"><b>Základ · prosinec 2026 až leden 2027</b><span>Nový web, test s e-mailem, první balíček v obchodě.</span></div>
+    <div class="step"><b>Publikum a první prodeje · únor až duben 2027</b><span>Blog, e-mail, Instagram. Cíl 300 e-mailů a 20 prodaných balíčků. Skupinka Před dovolenou.</span></div>
+    <div class="step"><b>Firmy a první lektor · březen až červen 2027</b><span>Oslovit 10 firem, jedna smlouva, jeden lektor.</span></div>
+    <div class="step"><b>Hlavní produkt · červen až říjen 2027</b><span>Kurz na doma k pohovoru, trenažér pohovoru. Cíl 1 000 e-mailů.</span></div>
+    <div class="step"><b>Předplatné a růst · od listopadu 2027</b><span>Klub na míru, portál pro firmy a další lektoři podle čísel.</span></div>
+  </div>
+  <p class="muted small" style="margin-top:12px">Každý větší produkt nejdřív jako čekací listina nebo předprodej. Stavět až po ověření zájmu.</p>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">K rozhodnutí</p>
+  <h2>Na čem se potřebujeme shodnout</h2>
+  <p class="muted small">Zaškrtávání slouží jen jako pomůcka při rozhovoru, nikam se neukládá.</p>
+  <div class="grid">
+    <label class="q"><input type="checkbox"><span><b>Má být cílem, aby za dva roky většina příjmů nebyla z odučených hodin?</b>Od toho se odvíjí všechno ostatní.</span></label>
+    <label class="q"><input type="checkbox"><span><b>Souhlasíš, že hlavní tlačítko webu bude test, ne lekce zdarma?</b>Konzultace zůstane jako druhá cesta.</span></label>
+    <label class="q"><input type="checkbox"><span><b>Kolik konzultací zdarma týdně chceš nabízet?</b>Podle toho se nastaví kalendář.</span></label>
+    <label class="q"><input type="checkbox"><span><b>Chceš učit skupinky? Který den a čas?</b>První termín na jaře 2027.</span></label>
+    <label class="q"><input type="checkbox"><span><b>Sedí ceny balíčků 390, 390 a 290 Kč? Za kolik prodáváš e-booky dnes?</b></span></label>
+    <label class="q"><input type="checkbox"><span><b>Chceš firmy a lektory? Dokážeš si představit, že vedeš tým?</b>Bez toho padá nejrychlejší cesta k příjmu bez hodin.</span></label>
+    <label class="q"><input type="checkbox"><span><b>Natočila bys 10 krátkých lekcí, kdyby si kurz předem koupilo 20 lidí?</b></span></label>
+    <label class="q"><input type="checkbox"><span><b>Kolik hodin týdně chceš dát věcem mimo učení?</b>Určuje tempo celé roadmapy.</span></label>
+  </div>
+</div></section>
+
+<section class="slide"><div class="inner">
+  <p class="num">Hned teď</p>
+  <h2>Kroky na tento týden</h2>
+  <div class="steps">
+    <div class="step"><b>Proklikat prototyp 4 v telefonu</b><span>Hlavně úvodní stránku, obchod a stránku pro firmy.</span></div>
+    <div class="step"><b>Odpovědět na otázky z předchozí strany</b><span>Stačí krátce, zbytek se doladí.</span></div>
+    <div class="step"><b>Zjistit čísla</b><span>Návštěvnost webu, počet e-mailů, prodeje e-booků a kurzů za poslední rok.</span></div>
+    <div class="step"><b>Poslat fotky a ceny</b><span>Pak jde postavit první stránky v MioWebu.</span></div>
+  </div>
+  <div class="btns">
+    <a class="btn" data-local="prototyp/web-4.html" href="https://jakubsmolek.github.io/anglictina-prototyp-4/" target="_blank" rel="noopener">Otevřít prototyp 4</a>
+    <a class="btn ghost" href="https://claude.ai/artifact/U6WCEEtDGwaLnR9MRJcSrw" target="_blank" rel="noopener">Otázky k ověření</a>
+  </div>
+</div></section>
+
+<nav class="bar" aria-label="Posun v prezentaci">
+  <button type="button" id="prev">← Zpět</button>
+  <span id="pos"></span>
+  <button type="button" class="next" id="next">Dál →</button>
+</nav>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const pos = document.getElementById('pos'), prev = document.getElementById('prev'), next = document.getElementById('next');
+  let cur = 0;
+
+  // Která strana je právě vidět
+  function current() {
+    const mid = window.innerHeight * 0.4;
+    let best = 0;
+    slides.forEach((s, i) => { if (s.getBoundingClientRect().top <= mid) best = i; });
+    return best;
+  }
+  function update() {
+    cur = current();
+    pos.textContent = (cur + 1) + ' / ' + slides.length;
+    prev.disabled = cur === 0;
+    next.disabled = cur === slides.length - 1;
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    slides[i].scrollIntoView({ block: 'start' });
+  }
+  prev.addEventListener('click', () => go(current() - 1));
+  next.addEventListener('click', () => go(current() + 1));
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT') return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(current() + 1); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(current() - 1); }
+  });
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  // Když se prezentace otevře ze složky v počítači, odkazy vedou na místní soubory
+  if (location.protocol === 'file:') {
+    document.querySelectorAll('a[data-local]').forEach(a => { a.href = a.dataset.local; });
+  }
+</script>
+</body>
+</html>
